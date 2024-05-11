@@ -1,6 +1,6 @@
 from flask import Flask,request,render_template,jsonify
 from src.pipeline.prediction_pipeline import CustomData,PredictPipeline
-
+from prediction_service import prediction
 
 application=Flask(__name__)
 
@@ -13,36 +13,25 @@ def home_page():
     return render_template('index.html')
 
 @app.route('/predict',methods=['GET','POST'])
-def predict_datapoint():
-    if request.method=='GET':
-        return render_template('form.html')
-    
+def predict_datapoint():    
+    if request.method == "POST":
+        try:
+            if request.form:
+                print("request is:",request)
+                response = prediction.form_response(request)
+                return render_template('results.html',final_result=response)
+            elif request.json:
+                response = prediction.api_response(request)
+                return jsonify(response)
+
+        except Exception as e:
+            print(e)
+            error = {"error": "Something went wrong!! Try again later!"}
+            error = {"error": e}
+
+            return render_template("404.html", error=error)
     else:
-        data=CustomData(
-            CRIM=float(request.form.get('CRIM')),
-            ZN=float(request.form.get('ZN')),
-            INDUS=float(request.form.get('INDUS')),
-            CHAS=float(request.form.get('CHAS')),
-            NOX=float(request.form.get('NOX')),
-            
-            RM=float(request.form.get('RM')),
-            AGE=float(request.form.get('AGE')),
-            DIS=float(request.form.get('DIS')),
-            RAD=float(request.form.get('RAD')),
-            TAX=float(request.form.get('TAX')),
-            
-            PTRATIO=float(request.form.get('PTRATIO')),
-            B=float(request.form.get('B')),
-            LSTAT=float(request.form.get('LSTAT')),
-            
-        )
-        final_new_data=data.get_data_as_dataframe()
-        predict_pipeline=PredictPipeline()
-        pred=predict_pipeline.predict(final_new_data)
-
-        results=round(pred[0],2)
-
-        return render_template('results.html',final_result=results)
+        return render_template("form.html")
 
 
 
