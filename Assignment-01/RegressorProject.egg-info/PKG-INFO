@@ -10,3 +10,4 @@ Requires-Dist: matplotlib
 Requires-Dist: scikit-learn
 Requires-Dist: flask
 Requires-Dist: PyYAML
+Requires-Dist: gunicorn
