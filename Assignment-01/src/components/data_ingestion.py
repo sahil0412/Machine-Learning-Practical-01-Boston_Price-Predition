@@ -9,6 +9,7 @@ from dataclasses import dataclass
 # from haversine import Unit
 
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionconfig:
@@ -56,4 +57,6 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_data_path, test_data_path = obj.initiate_data_ingestion()
     data_transformation = DataTransformation()
-    data_transformation.initaite_data_transformation(train_data_path,test_data_path)
+    train_arr, test_arr, preprocessor_obj_file_path, = data_transformation.initaite_data_transformation(train_data_path,test_data_path)
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_training(train_arr, test_arr)

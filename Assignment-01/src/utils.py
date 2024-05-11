@@ -20,27 +20,34 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_model(X_train,y_train,X_test,y_test,models):
+def evaluate_model(X_train,y_train,X_test,y_test,model):
     try:
-        report = {}
-        for i in range(len(models)):
-            model = list(models.values())[i]
-            # Train model
-            model.fit(X_train,y_train)
+        # report = {}
+        # for i in range(len(models)):
+        #     model = list(models.values())[i]
+        #     # Train model
+        #     model.fit(X_train,y_train)
 
             
 
-            # Predict Testing data
-            y_test_pred =model.predict(X_test)
+        #     # Predict Testing data
+        #     y_test_pred =model.predict(X_test)
 
-            # Get R2 scores for train and test data
-            #train_model_score = r2_score(ytrain,y_train_pred)
-            test_model_score = r2_score(y_test,y_test_pred)
+        #     # Get R2 scores for train and test data
+        #     #train_model_score = r2_score(ytrain,y_train_pred)
+        #     test_model_score = r2_score(y_test,y_test_pred)
 
-            report[list(models.keys())[i]] =  test_model_score
+        #     report[list(models.keys())[i]] =  test_model_score
 
-        return report
-
+        # return report
+        model.fit(X_train, y_train)
+        print('Training Score : ', model.score(X_train, y_train))
+        print('Testing Score  : ', model.score(X_test, y_test))
+        # Predict Testing data
+        y_test_pred =model.predict(X_test)
+        r2 = r2_score(y_test, y_test_pred)
+        mse = mean_squared_error(y_test, y_test_pred)
+        return r2, mse, model
     except Exception as e:
         logging.info('Exception occured during model training')
         raise CustomException(e,sys)
