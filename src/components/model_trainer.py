@@ -36,13 +36,6 @@ class ModelTrainer:
             print(model_report)
             print('\n====================================================================================\n')
             logging.info(f'Model Report : {model_report}')
-
-            # # To get best model score from dictionary 
-            # best_model_score = max(sorted(model_report.values()))
-
-            # best_model_name = list(model_report.keys())[
-            #     list(model_report.values()).index(best_model_score)
-            # ]
             
             print(f' Model Name : "LinearRegression" , R2 Score : {model_report[0]}, MSE : {model_report[1]}')
             print('\n====================================================================================\n')

@@ -12,7 +12,7 @@ def home_page():
     return render_template('index.html')
 
 @app.route('/predict',methods=['GET','POST'])
-def predict_datapoint():    
+def predict_datapoint():
     if request.method == "POST":
         try:
             if request.form:
@@ -25,7 +25,6 @@ def predict_datapoint():
 
         except Exception as e:
             print(e)
-            error = {"error": "Something went wrong!! Try again later!"}
             error = {"error": e}
 
             return render_template("404.html", error=error)
