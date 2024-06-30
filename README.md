@@ -108,3 +108,4 @@ a. we will work on mobile application<br>
 b. we will reduce the size of model using PCA .
 
 ## Deployable Link
+https://machine-learning-practical-assignment-01.onrender.com/predict
