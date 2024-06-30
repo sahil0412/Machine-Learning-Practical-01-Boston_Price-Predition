@@ -45,6 +45,10 @@ PTRATIO: pupil-teacher ratio by town<br>
 B: 1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town<br>
 LSTAT: % lower status of the population<br>
 
+Target Column is Price which is specified as
+MEDV: Median value of owner-occupied homes in $1000s<br>
+If MEDV is 24.0 for a particular area (or observation in the dataset), it means that the median value of all the owner-occupied homes in that area is $24,000. This value is derived from actual housing prices and is intended to give a single, representative value for the home prices in that area.
+
 ### 3. EDA
 #### A.Data Cleaning
 We have 13 columns and no column contain any null values<br>
