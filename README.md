@@ -18,7 +18,7 @@ a.Python<br>
 b.Jupyter Notebook<br>
 c. Flask<br>
 d. HTML<br>
-e. Render
+e. Render<br>
 f. GitHub
 
 Libraries<br><br>
@@ -55,7 +55,7 @@ We have 13 columns and no column contain any null values<br>
 All columns are numerical also
 
 #### B. Feature Engineering
-No outiers are present in the data
+No outliers are present in the data
 
 #### C. Data Normalization
 Normalization (min-max Normalization)<br>
@@ -66,12 +66,9 @@ we have numerical column where we can apply min-max Normalization.<br>
 ### 4. Choosing Best ML Model
 List of the model that we can use for our problem<br>
 a. LinearRegression model<br>
-b. KNN Model<br>
-c. Decesion Tree<br>
-d. Random Forest
 
 ### 5. Model Creation
-So,using a RandomForest we got good accuracy , we can Hyperparameter tuning  for best accuracy.
+So,using a Linear Regresssion we got good accuracy as R2 score is close to 1, we can Hyperparameter tuning for best accuracy.
 
 Algorithm that can be used for Hyperparameter tuning are :-
 
@@ -80,19 +77,16 @@ b. RandomizedSearchCV<br>
 
 Main parameters used by RandomForest Algorithm are :-
 
-a. n_estimators --->    The number of trees in the forest.<br>
-b. criterion--->{"mse", "mae"}-->The function to measure the quality of a split<br>
-c. max_features--->{"auto", "sqrt", "log2"}-->    The number of features to consider when looking for the best split:
+a. alpha ---> Alpha is a positive constant that multiplies the regularization terms. It controls the overall strength of regularization applied to the model.
+b. l1_ratio ---> l1_ratio is the mixing parameter that controls the balance between L1 (Lasso) and L2 (Ridge) penalties in Elastic Net regularization.
 
-
-So, After Hyperparameter Tuning we got 90 % accuracy on test data and 94 % accuracy on train data. 
 
 ### 6. Model Deployment
-After creating model ,we integrate that model with beautiful UI. for the UI part we used HTML and Flask. We have added extra validation check also so that user doesn't enter Incorrect data
+After creating model ,we integrate that model with beautiful UI. for the UI part we used HTML and Flask. We have added extra validation check also so that user doesn't enter Incorrect data. Then the model is deployed on render
 
 ### 7. Model Conclusion
 
-Model predict 90% accurately on test data and 94% accurately on train data .
+Model predict 0.62 accurately on test data(R2 Score).
 
 ### 8. Project Innovation
 a. Easy to use<br>
@@ -104,12 +98,10 @@ d. GUI Based Application
 Limitation are :-<br>
 a. Mobile Application<br>
 b. Accuracy can be improved more<br>
-c. Model Size is heavy(~310 mb )<br>
 d. Feature is limited
 
 Next Step are :-<br>
-a. we will work on mobile application<br>
-b. we will reduce the size of model using PCA .
+a. we can work on mobile application<br>
 
 ## Deployable Link
 https://machine-learning-practical-assignment-01.onrender.com/predict
