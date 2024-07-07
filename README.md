@@ -75,7 +75,7 @@ Algorithm that can be used for Hyperparameter tuning are :-
 a. GridSearchCV<br>
 b. RandomizedSearchCV<br>
 
-Main parameters used by RandomForest Algorithm are :-
+Main parameters used by Linear Regression Algorithm are :-
 
 a. alpha ---> Alpha is a positive constant that multiplies the regularization terms. It controls the overall strength of regularization applied to the model.
 b. l1_ratio ---> l1_ratio is the mixing parameter that controls the balance between L1 (Lasso) and L2 (Ridge) penalties in Elastic Net regularization.
